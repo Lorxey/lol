@@ -23,10 +23,37 @@
       crossorigin="anonymous"
     />
     <style>
-      /* Efekt neonowy dla nagłówka */
-      .neon-text {
-        text-shadow: 0 0 20px rgba(59, 130, 246, 0.8),
-          0 0 30px rgba(59, 130, 246, 0.6);
+      /* Stylizacja przycisku "Zobacz ofertę" */
+      #cta-button {
+        background: linear-gradient(45deg, #007bff, #28a745); /* Gradient */
+        border: none;
+        color: white;
+        padding: 15px 30px;
+        font-size: 1.25rem;
+        text-transform: uppercase;
+        border-radius: 5px;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+      }
+
+      #cta-button:hover {
+        background-color: #0056b3; /* Zmiana koloru tła po najechaniu */
+        transform: translateY(-5px); /* Lekka animacja przesunięcia */
+      }
+
+      /* Responsywność nagłówka */
+      header h1 {
+        font-size: 3rem;
+      }
+
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2.5rem;
+        }
+
+        #cta-button {
+          font-size: 1.1rem;
+          padding: 12px 24px;
+        }
       }
 
       /* Animacja skalowania przycisków */
@@ -454,35 +481,36 @@
       </div>
     </nav>
 
-   <!-- Header -->
-<header
-class="vh-100 bg-dark position-relative text-center text-white d-flex flex-column justify-content-center align-items-center"
-style="
-  background-image: url('https://via.placeholder.com/1920x1080');
-  background-size: cover;
-  background-position: center;
-"
->
-<div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"></div>
-<div class="position-relative z-1">
-  <img
-    src="https://via.placeholder.com/150x50"
-    alt="Logo szkoły"
-    class="mb-4"
-  />
-  <h1 class="display-4 fw-bold text-uppercase neon-text">
-    Rekrutacja do Szkoły Średniej
-  </h1>
-  <a
-    href="#offer" <!-- Zmiana linku na kotwicę prowadzącą do sekcji "Oferta" -->
-    id="cta-button"
-    class="btn btn-lg btn-gradient btn-hover mt-4"
-  >
-    Zobacz ofertę
-  </a>
-</div>
-</header>
-
+    <!-- Header -->
+    <header
+      class="vh-100 bg-dark position-relative text-center text-white d-flex flex-column justify-content-center align-items-center"
+      style="
+        background-image: url('https://via.placeholder.com/1920x1080');
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <div
+        class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"
+      ></div>
+      <div class="position-relative z-1">
+        <img
+          src="https://via.placeholder.com/150x50"
+          alt="Logo szkoły"
+          class="mb-4"
+        />
+        <h1 class="display-4 fw-bold text-uppercase neon-text">
+          Rekrutacja do Szkoły Średniej
+        </h1>
+        <a
+          href="#offer"
+          id="cta-button"
+          class="btn btn-lg btn-gradient btn-hover mt-4"
+        >
+          Zobacz ofertę
+        </a>
+      </div>
+    </header>
 
     <!-- Sekcja O Nas -->
     <main class="container mx-auto px-6 py-16 space-y-20">
@@ -499,7 +527,7 @@ style="
       </section>
 
       <!-- Sekcja z Profilami -->
-      <section id="profiles" class="py-5">
+      <section id="offer" class="py-5">
         <div class="container text-center">
           <h2 class="display-5 fw-bold mb-5">Nasze Profile</h2>
 
@@ -785,6 +813,196 @@ style="
         </div>
       </section>
 
+      <!-- Sekcja: Wydarzenia i wydarzenia specjalne -->
+      <section id="events" class="py-5">
+        <div class="container text-center">
+          <h2 class="display-5 fw-bold mb-5">
+            Wydarzenia i Wydarzenia Specjalne
+          </h2>
+          <div class="row">
+            <div class="col-md-4 mb-4">
+              <div class="event-card p-4 border rounded shadow">
+                <h4>Spotkania z nauczycielami</h4>
+                <p>
+                  Spotkania z nauczycielami, podczas których można uzyskać
+                  więcej informacji o oferowanych profilach oraz procesie
+                  rekrutacyjnym.
+                </p>
+                <a href="#" class="btn btn-primary">Dowiedz się więcej</a>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="event-card p-4 border rounded shadow">
+                <h4>Dni otwarte</h4>
+                <p>
+                  Zapraszamy wszystkich kandydatów na dni otwarte, aby zobaczyć
+                  naszą szkołę na żywo.
+                </p>
+                <a href="#" class="btn btn-primary">Dowiedz się więcej</a>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="event-card p-4 border rounded shadow">
+                <h4>Wycieczki edukacyjne</h4>
+                <p>
+                  Organizujemy wycieczki edukacyjne, które są integralną częścią
+                  naszych programów nauczania.
+                </p>
+                <a href="#" class="btn btn-primary">Dowiedz się więcej</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sekcja: Wsparcie dla kandydatów -->
+      <section id="support" class="py-5">
+        <div class="container text-center">
+          <h2 class="display-5 fw-bold mb-5">Wsparcie dla Kandydatów</h2>
+          <p class="lead mb-4">
+            Oferujemy wsparcie na każdym etapie rekrutacji, abyście czuli się
+            pewnie w całym procesie aplikacyjnym. Skorzystaj z naszych zasobów,
+            aby ułatwić sobie aplikację!
+          </p>
+          <div class="row">
+            <div class="col-md-4 mb-4">
+              <h4>Przygotowanie do rekrutacji</h4>
+              <p>
+                Oferujemy poradniki i materiały pomocnicze, które pomogą Ci
+                przygotować się do procesu rekrutacyjnego.
+              </p>
+            </div>
+            <div class="col-md-4 mb-4">
+              <h4>Poradnik dla rodziców</h4>
+              <p>
+                Specjalny poradnik dla rodziców, który pomoże zrozumieć, jak
+                wspierać swoje dzieci w procesie rekrutacji.
+              </p>
+            </div>
+            <div class="col-md-4 mb-4">
+              <h4>Porady dotyczące dokumentów</h4>
+              <p>
+                Podpowiadamy, jak przygotować i złożyć wymagane dokumenty
+                aplikacyjne.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sekcja: Galeria zdjęć i filmów -->
+      <section id="gallery" class="py-5 bg-light">
+        <div class="container text-center">
+          <h2 class="display-5 fw-bold mb-5">Galeria Zdjęć i Filmów</h2>
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <div class="gallery-item">
+                <img
+                  src="https://via.placeholder.com/500x300"
+                  alt="Zdjęcie 1"
+                  class="img-fluid rounded shadow"
+                />
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="gallery-item">
+                <img
+                  src="https://via.placeholder.com/500x300"
+                  alt="Zdjęcie 2"
+                  class="img-fluid rounded shadow"
+                />
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="gallery-item">
+                <img
+                  src="https://via.placeholder.com/500x300"
+                  alt="Zdjęcie 3"
+                  class="img-fluid rounded shadow"
+                />
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="gallery-item">
+                <img
+                  src="https://via.placeholder.com/500x300"
+                  alt="Zdjęcie 4"
+                  class="img-fluid rounded shadow"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sekcja: Możliwości finansowe i stypendia -->
+      <section id="financial-aid" class="py-5 bg-light">
+        <div class="container text-center">
+          <h2 class="display-5 fw-bold mb-5">
+            Możliwości Finansowe i Stypendia
+          </h2>
+          <p class="lead mb-4">
+            Nasza szkoła oferuje stypendia i inne formy wsparcia finansowego dla
+            uczniów, którzy tego potrzebują. Zapoznaj się z dostępnymi opcjami.
+          </p>
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <h4>Stypendia meritoryczne</h4>
+              <p>
+                Oferujemy stypendia dla najlepszych uczniów, którzy osiągają
+                wysokie wyniki akademickie.
+              </p>
+            </div>
+            <div class="col-md-6 mb-4">
+              <h4>Programy wsparcia finansowego</h4>
+              <p>
+                Uczniowie z rodzin o niskich dochodach mogą ubiegać się o
+                wsparcie finansowe na pokrycie kosztów nauki.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sekcja: Nowości i aktualności -->
+      <section id="news" class="py-5">
+        <div class="container text-center">
+          <h2 class="display-5 fw-bold mb-5">Nowości i Aktualności</h2>
+          <div class="row">
+            <div class="col-md-4 mb-4">
+              <div class="news-card p-4 border rounded shadow">
+                <h4>Nowe ogłoszenia rekrutacyjne</h4>
+                <p>
+                  Zapoznaj się z najnowszymi ogłoszeniami dotyczącymi procesu
+                  rekrutacji do naszej szkoły.
+                </p>
+                <a href="#" class="btn btn-primary">Przeczytaj więcej</a>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="news-card p-4 border rounded shadow">
+                <h4>Zaktualizowane terminy rekrutacji</h4>
+                <p>
+                  Dowiedz się o nowych terminach spotkań informacyjnych oraz
+                  ważnych dat dla kandydatów.
+                </p>
+                <a href="#" class="btn btn-primary">Przeczytaj więcej</a>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="news-card p-4 border rounded shadow">
+                <h4>Zmiany w regulaminie rekrutacyjnym</h4>
+                <p>
+                  Przeczytaj o najnowszych zmianach w regulaminie rekrutacji do
+                  naszej szkoły.
+                </p>
+                <a href="#" class="btn btn-primary">Przeczytaj więcej</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Sekcja FAQ -->
       <section id="faq" class="py-5 bg-light">
         <div class="container">
@@ -1038,17 +1256,18 @@ style="
         });
       });
 
-      // Obsługuje kliknięcie w przycisk Zobacz ofertę
-      document
-        .getElementById("cta-button")
-        .addEventListener("click", function (e) {
-          e.preventDefault(); // Zapobiega domyślnej akcji linku
-          const targetSection = document.getElementById("offer"); // Sekcja docelowa
-          targetSection.scrollIntoView({
+      // Płynne przewijanie do sekcji
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault(); // Zapobiega standardowemu działaniu linku
+
+          // Płynne przewijanie do sekcji
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
             behavior: "smooth", // Płynne przewijanie
-            block: "start", // Ustawienie na początek sekcji
+            block: "start", // Sekcja ma się pojawić na górze ekranu
           });
         });
+      });
 
       // Płynne przewijanie do sekcji
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
