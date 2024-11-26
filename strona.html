@@ -56,6 +56,55 @@
         }
       }
 
+      /* Styl dla sekcji Dni Otwarte */
+      #open-days {
+        background-color: #f8f9fa;
+      }
+
+      #open-days h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #343a40;
+      }
+
+      #open-days .lead {
+        font-size: 1.2rem;
+        color: #6c757d;
+      }
+
+      #open-days .row {
+        margin-top: 30px;
+      }
+
+      #open-days .col-lg-6 {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      #open-days .col-12 {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      #open-days .btn-gradient {
+        background: linear-gradient(90deg, #007bff, #28a745);
+        color: #fff;
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+
+      #open-days .btn-gradient:hover {
+        background: linear-gradient(90deg, #28a745, #007bff);
+      }
+
       /* Animacja skalowania przycisków */
       .btn-hover:hover {
         transform: scale(1.05);
@@ -300,6 +349,30 @@
         }
       }
 
+      /* Styl dla sekcji z filmem promocyjnym */
+      #promo-video {
+        background-color: #f8f9fa;
+      }
+
+      #promo-video .video-container {
+        position: relative;
+        padding-bottom: 56.25%; /* Utrzymuje proporcje 16:9 */
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+        background-color: #000;
+        border-radius: 8px;
+      }
+
+      #promo-video iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+      }
+
       /* Profilowa sekcja */
       .profile-card {
         position: relative;
@@ -523,6 +596,35 @@
             kadrze nauczycielskiej i bogatemu zapleczu edukacyjnemu oferujemy
             programy dopasowane do potrzeb współczesnych uczniów.
           </p>
+        </div>
+      </section>
+
+      <!-- Sekcja z filmem promocyjnym -->
+      <section id="promo-video" class="py-5 bg-light text-center">
+        <div class="container">
+          <h2 class="display-4 fw-bold mb-4">Zobacz nasz film promocyjny</h2>
+          <p class="lead mb-5">
+            Poznaj naszą szkołę z bliska i zobacz, dlaczego warto do nas
+            dołączyć!
+          </p>
+          <div class="video-container">
+            <iframe
+              width="100%"
+              height="500"
+              src="https://www.youtube.com/embed/EXAMPLEVIDEO"
+              <!--
+              Wstaw
+              tutaj
+              link
+              do
+              swojego
+              filmu
+              --
+            >
+              frameborder="0" allow="accelerometer; autoplay; encrypted-media;
+              gyroscope; picture-in-picture" allowfullscreen ></iframe
+            >
+          </div>
         </div>
       </section>
 
@@ -813,43 +915,38 @@
         </div>
       </section>
 
-      <!-- Sekcja: Wydarzenia i wydarzenia specjalne -->
-      <section id="events" class="py-5">
-        <div class="container text-center">
-          <h2 class="display-5 fw-bold mb-5">
-            Wydarzenia i Wydarzenia Specjalne
-          </h2>
+      <!-- Sekcja z wydarzeniem: Dni Otwarte -->
+      <section id="open-days" class="py-5 bg-light text-center">
+        <div class="container">
+          <h2 class="display-4 fw-bold mb-4">Dni Otwarte</h2>
+          <p class="lead mb-5">
+            Zapraszamy na Dni Otwarte, podczas których będziecie mieli okazję
+            poznać naszą szkołę osobiście!
+          </p>
           <div class="row">
-            <div class="col-md-4 mb-4">
-              <div class="event-card p-4 border rounded shadow">
-                <h4>Spotkania z nauczycielami</h4>
-                <p>
-                  Spotkania z nauczycielami, podczas których można uzyskać
-                  więcej informacji o oferowanych profilach oraz procesie
-                  rekrutacyjnym.
-                </p>
-                <a href="#" class="btn btn-primary">Dowiedz się więcej</a>
-              </div>
+            <div class="col-lg-6 mb-4">
+              <h3 class="h5">Kiedy?</h3>
+              <p>
+                Dni Otwarte odbędą się w dniach
+                <strong>15-16 marca 2024 r.</strong>. Będziemy czekać na Was w
+                godzinach od <strong>10:00 do 14:00</strong>.
+              </p>
             </div>
-            <div class="col-md-4 mb-4">
-              <div class="event-card p-4 border rounded shadow">
-                <h4>Dni otwarte</h4>
-                <p>
-                  Zapraszamy wszystkich kandydatów na dni otwarte, aby zobaczyć
-                  naszą szkołę na żywo.
-                </p>
-                <a href="#" class="btn btn-primary">Dowiedz się więcej</a>
-              </div>
+            <div class="col-lg-6 mb-4">
+              <h3 class="h5">Gdzie?</h3>
+              <p>
+                Spotkanie odbędzie się w naszej siedzibie, przy ulicy
+                <strong>Szkolna 10, 00-000 Warszawa</strong>.
+              </p>
             </div>
-            <div class="col-md-4 mb-4">
-              <div class="event-card p-4 border rounded shadow">
-                <h4>Wycieczki edukacyjne</h4>
-                <p>
-                  Organizujemy wycieczki edukacyjne, które są integralną częścią
-                  naszych programów nauczania.
-                </p>
-                <a href="#" class="btn btn-primary">Dowiedz się więcej</a>
-              </div>
+            <div class="col-12">
+              <h3 class="h5">Jak do nas dotrzeć?</h3>
+              <p>
+                Do naszej szkoły można dotrzeć komunikacją miejską. Najbliższa
+                stacja metra to <strong>Metro Centrum</strong>, a z przystanku
+                tramwajowego <strong>Plac Zbawiciela</strong> jest tylko 5 minut
+                spacerem.
+              </p>
             </div>
           </div>
         </div>
