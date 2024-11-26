@@ -1,228 +1,1107 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rekrutacja do Szkoły Średniej</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
     <style>
-        /* Efekt neonowy dla nagłówka */
-        .neon-text {
-            text-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.6);
+      /* Efekt neonowy dla nagłówka */
+      .neon-text {
+        text-shadow: 0 0 20px rgba(59, 130, 246, 0.8),
+          0 0 30px rgba(59, 130, 246, 0.6);
+      }
+
+      /* Animacja skalowania przycisków */
+      .btn-hover:hover {
+        transform: scale(1.05);
+      }
+
+      /* Efekt paralaksy dla tła */
+      .header-background {
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+      }
+
+      /* Nawigacja ze zmiennym tłem */
+      .navbar {
+        background-color: rgba(0, 0, 0, 0);
+        transition: background-color 0.5s ease;
+      }
+
+      .navbar-scrolled {
+        background-color: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+      }
+
+      /* Efekt "pop up" dla kafelków */
+      .card:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      /* Gradient przycisku */
+      .btn-gradient {
+        background: linear-gradient(to right, #0d6efd, #6610f2, #e83e8c);
+        color: white;
+        border: none;
+      }
+
+      .btn-gradient:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      /*Podświetlenie po najechaniu */
+      .document-link:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      }
+      /* Stylowanie sekcji szczegółowych */
+      section {
+        padding: 60px 0;
+      }
+
+      #math-profile-details,
+      #science-profile-details,
+      #humanities-profile-details {
+        background-color: #f8f9fa;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+      }
+
+      .lead {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+      }
+
+      ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        font-size: 1.1rem;
+      }
+
+      ul li {
+        margin-bottom: 10px;
+      }
+
+      /* Sekcja z profilami */
+      .profile-card {
+        position: relative;
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .profile-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .profile-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin: 0 auto;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+        margin-bottom: 20px;
+      }
+
+      .profile-card h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+
+      .profile-card p {
+        font-size: 1rem;
+        color: #6c757d;
+        line-height: 1.5;
+      }
+
+      .profile-card .btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      .profile-card .btn-primary {
+        background-color: #007bff;
+        border: none;
+      }
+
+      .profile-card .btn-primary:hover {
+        background-color: #0056b3;
+      }
+
+      .profile-card .btn-success {
+        background-color: #28a745;
+        border: none;
+      }
+
+      .profile-card .btn-success:hover {
+        background-color: #218838;
+      }
+
+      .profile-card .btn-danger {
+        background-color: #dc3545;
+        border: none;
+      }
+
+      .profile-card .btn-danger:hover {
+        background-color: #c82333;
+      }
+
+      /*Style dla harmonogramu */
+      .timeline {
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+
+      .timeline-item {
+        position: relative;
+        padding: 40px 0;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.5s ease-in-out forwards;
+        z-index: 3; /* Ensure items are above the line */
+      }
+
+      .timeline-item:nth-child(odd) {
+        animation-delay: 0.2s;
+      }
+
+      .timeline-item:nth-child(even) {
+        animation-delay: 0.4s;
+      }
+
+      .timeline-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .date-circle {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #007bff;
+        margin-right: 20px;
+        position: relative;
+        z-index: 2; /* Make sure circle is above the line */
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+      }
+
+      .date-circle:hover {
+        background-color: #28a745;
+      }
+
+      .timeline-line {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 2px;
+        background-color: #007bff;
+        transform: translateX(-50%);
+        z-index: 1; /* Line stays below circles and event boxes */
+        height: 100%;
+      }
+
+      @keyframes drawLine {
+        from {
+          height: 0;
+        }
+        to {
+          height: 100%;
+        }
+      }
+
+      .timeline-line:hover {
+        background-color: #28a745;
+      }
+
+      .event {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        width: 250px;
+        text-align: left;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.5s ease-in-out forwards;
+        z-index: 3; /* Ensure the event is above the line */
+      }
+
+      .event h5 {
+        margin: 0;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Fix for overlapping event boxes */
+      .timeline-content .event {
+        margin-left: 30px; /* Move the event boxes away from the circles */
+      }
+
+      @media (max-width: 768px) {
+        .timeline-content {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .date-circle {
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+        .event {
+          width: 100%;
+          margin-top: 20px;
+        }
+      }
+
+      /* Profilowa sekcja */
+      .profile-card {
+        position: relative;
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .profile-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .profile-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin: 0 auto;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+        margin-bottom: 20px;
+      }
+
+      .profile-card h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+
+      .profile-card p {
+        font-size: 1rem;
+        color: #6c757d;
+        line-height: 1.5;
+      }
+
+      .profile-card .btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      .profile-card .btn-primary {
+        background-color: #007bff;
+        border: none;
+      }
+
+      .profile-card .btn-primary:hover {
+        background-color: #0056b3;
+      }
+
+      .profile-card .btn-success {
+        background-color: #28a745;
+        border: none;
+      }
+
+      .profile-card .btn-success:hover {
+        background-color: #218838;
+      }
+
+      .profile-card .btn-danger {
+        background-color: #dc3545;
+        border: none;
+      }
+
+      .profile-card .btn-danger:hover {
+        background-color: #c82333;
+      }
+
+      /* Responsywność */
+      @media (max-width: 768px) {
+        .profile-card {
+          padding: 20px;
         }
 
-        /* Animacja skalowania przycisków */
-        .btn-hover:hover {
-            transform: scale(1.05);
+        .profile-icon {
+          width: 50px;
+          height: 50px;
+          font-size: 25px;
         }
+      }
 
-        /* Efekt paralaksy dla tła */
-        .header-background {
-            background-attachment: fixed;
-            background-position: center;
-            background-size: cover;
-        }
+      /* Stylowanie sekcji Zasady obliczania punktów */
+      #recruitment-rules {
+        background-color: #f8f9fa;
+      }
 
-        /* Nawigacja ze zmiennym tłem */
-        .navbar-scrolled {
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-        }
+      #recruitment-rules h2 {
+        font-size: 2.5rem;
+      }
 
-        /* Stylizacja akordeonu */
-        .accordion-content {
-            display: none;
-            padding: 1rem;
-            background-color: #f9f9f9;
-        }
+      #recruitment-rules h3 {
+        font-size: 1.8rem;
+        color: #007bff;
+      }
+
+      #recruitment-rules ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        font-size: 1.1rem;
+      }
+
+      #recruitment-rules table {
+        width: 100%;
+        margin-top: 30px;
+        font-size: 1rem;
+      }
+
+      #recruitment-rules table th,
+      #recruitment-rules table td {
+        padding: 12px;
+        text-align: left;
+      }
+
+      #recruitment-rules table th {
+        background-color: #007bff;
+        color: white;
+      }
+
+      #recruitment-rules table tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
     </style>
-</head>
-<body class="font-sans bg-white-100">
-
+  </head>
+  <body class="font-sans bg-white-100">
     <!-- Nawigacja -->
-<nav id="navbar" class="navbar navbar-expand-lg navbar-dark fixed-top bg-transparent">
-  <div class="container">
-    <a class="navbar-brand" href="#about">
-      <i class="fas fa-info-circle"></i> II Liceum Ogólnokształcące w Legnicy
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Przełącz nawigację">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#about"><i class="fas fa-info-circle me-2"></i>O Nas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#offer"><i class="fas fa-list-alt me-2"></i>Oferta</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#profiles"><i class="fas fa-users me-2"></i>Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contact"><i class="fas fa-envelope me-2"></i>Kontakt</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
+    <nav
+      id="navbar"
+      class="navbar navbar-expand-lg navbar-dark fixed-top bg-transparent"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="#about">
+          <i class="fas fa-info-circle"></i> II Liceum Ogólnokształcące w
+          Legnicy
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Przełącz nawigację"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about"
+                ><i class="fas fa-info-circle me-2"></i>O Nas</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#offer"
+                ><i class="fas fa-list-alt me-2"></i>Oferta</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#profiles"
+                ><i class="fas fa-users me-2"></i>Profile</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact"
+                ><i class="fas fa-envelope me-2"></i>Kontakt</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <!-- Header -->
-    <header class="relative h-screen header-background" style="background-image: url('https://via.placeholder.com/1920x1080');">
-        <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/20"></div>
-        <div class="relative z-10 flex flex-col items-center justify-center h-full space-y-8">
-            <div class="text-center">
-                <img src="https://via.placeholder.com/150x50" alt="Logo szkoły" class="mb-6 mx-auto">
-            </div>
-            <h1 data-aos="fade-up" data-aos-duration="1000" class="text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 neon-text">
-                Rekrutacja do Szkoły Średniej
-            </h1>
-            <a href="#offer" id="cta-button"	 class="px-8 py-4 text-lg font-bold text-white bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full hover:scale-105 transition-transform duration-300 btn-hover">
-                Zobacz ofertę
-            </a>
-        </div>
+    <header
+      class="vh-100 bg-dark position-relative text-center text-white d-flex flex-column justify-content-center align-items-center"
+      style="
+        background-image: url('https://via.placeholder.com/1920x1080');
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <div
+        class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-75"
+      ></div>
+      <div class="position-relative z-1">
+        <img
+          src="https://via.placeholder.com/150x50"
+          alt="Logo szkoły"
+          class="mb-4"
+        />
+        <h1 class="display-4 fw-bold text-uppercase neon-text">
+          Rekrutacja do Szkoły Średniej
+        </h1>
+        <a
+          href="#offer"
+          id="cta-button"
+          class="btn btn-lg btn-gradient btn-hover mt-4"
+        >
+          Zobacz ofertę
+        </a>
+      </div>
     </header>
 
     <!-- Sekcja O Nas -->
     <main class="container mx-auto px-6 py-16 space-y-20">
-        <section id="about" class="py-12 bg-white rounded-lg shadow-md" data-aos="fade-up">
-            <h2 class="text-5xl font-bold text-center mb-10 text-gray-800">O Nas</h2>
-            <div class="space-y-6 text-lg leading-relaxed text-gray-700 max-w-4xl mx-auto">
-                <p>Nasza szkoła to miejsce, w którym pasja spotyka profesjonalizm. Zapewniamy nowoczesne podejście do edukacji.</p>
-                <p>Dzięki zaangażowanej kadrze nauczycielskiej i bogatemu zapleczu edukacyjnemu oferujemy programy dopasowane do potrzeb współczesnych uczniów.</p>
-            </div>
-        </section>
+      <section id="about" class="py-5 bg-light" data-aos="fade-up">
+        <div class="container text-center">
+          <h2 class="display-5 fw-bold text-dark mb-4">O Nas</h2>
+          <p class="lead text-muted mx-auto" style="max-width: 800px">
+            Nasza szkoła to miejsce, w którym pasja spotyka profesjonalizm.
+            Zapewniamy nowoczesne podejście do edukacji. Dzięki zaangażowanej
+            kadrze nauczycielskiej i bogatemu zapleczu edukacyjnemu oferujemy
+            programy dopasowane do potrzeb współczesnych uczniów.
+          </p>
+        </div>
+      </section>
 
-        <!-- Sekcja Oferta Rekrutacyjna -->
-  <section id="offer" class="py-20 bg-gradient-to-r from-blue-100 to-purple-100">
-   <div class="container mx-auto text-center">
-       <h2 class="text-4xl font-extrabold text-gray-900 mb-12">Nasza Oferta Rekrutacyjna</h2>
-       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-           <!-- Kafelek Profil Matematyczny -->
-           <div class="p-6 bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-400 transform hover:scale-105 transition-all duration-300 cursor-pointer active:scale-95">
-               <div class="flex items-center space-x-4">
-                   <i class="fas fa-calculator text-6xl"></i>
-                   <h3 class="text-xl font-semibold">Profil Matematyczny</h3>
-               </div>
-               <p class="mt-4 text-gray-200">Rozwijaj swoje analityczne i logiczne umiejętności w przedmiotach ścisłych.</p>
-           </div>
-
-           <!-- Kafelek Profil Przyrodniczy -->
-           <div class="p-6 bg-green-500 text-white rounded-lg shadow-lg hover:bg-green-400 transform hover:scale-105 transition-all duration-300 cursor-pointer active:scale-95">
-               <div class="flex items-center space-x-4">
-                   <i class="fas fa-leaf text-6xl"></i>
-                   <h3 class="text-xl font-semibold">Profil Przyrodniczy</h3>
-               </div>
-               <p class="mt-4 text-gray-200">Zgłębiaj tajniki biologii i chemii w sposób praktyczny i fascynujący.</p>
-           </div>
-
-           <!-- Kafelek Profil Humanistyczny -->
-           <div class="p-6 bg-red-500 text-white rounded-lg shadow-lg hover:bg-red-400 transform hover:scale-105 transition-all duration-300 cursor-pointer active:scale-95">
-               <div class="flex items-center space-x-4">
-                   <i class="fas fa-book-open text-6xl"></i>
-                   <h3 class="text-xl font-semibold">Profil Humanistyczny</h3>
-               </div>
-               <p class="mt-4 text-gray-200">Poznaj literaturę, historię i sztukę, rozwijając swoje zainteresowania humanistyczne.</p>
-           </div>
-       </div>
-   </div>
-</section>
-
-
-
-        <!-- Sekcja FAQ -->
-        <section id="faq" class="py-12 bg-gray-100 rounded-lg shadow-md" data-aos="fade-up">
-            <h2 class="text-5xl font-bold text-center mb-10 text-gray-800">Najczęściej Zadawane Pytania</h2>
-            <div class="space-y-6 text-lg leading-relaxed text-gray-700 max-w-4xl mx-auto">
-                <div class="accordion-item">
-                    <button class="w-full text-left py-4 px-6 bg-gray-200 hover:bg-gray-300 rounded-md">
-                        Jakie są wymagania rekrutacyjne?
-                    </button>
-                    <div class="accordion-content py-4 px-6 bg-gray-50">
-                        <p>Wymagania zależą od profilu, ale w każdym przypadku liczy się średnia ocen oraz wyniki z przedmiotów obowiązkowych.</p>
-                    </div>
+      <!--Sekcje z profilami-->
+      <section id="profiles" class="py-5">
+        <div class="container text-center">
+          <h2 class="display-5 fw-bold mb-5">Oferta Rekrutacyjna</h2>
+          <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div id="math-profile" class="profile-card shadow-sm">
+                <div class="profile-icon bg-primary text-white">
+                  <i class="fas fa-calculator"></i>
                 </div>
-                <div class="accordion-item">
-                    <button class="w-full text-left py-4 px-6 bg-gray-200 hover:bg-gray-300 rounded-md">
-                        Jakie dokumenty są potrzebne do rekrutacji?
-                    </button>
-                    <div class="accordion-content py-4 px-6 bg-gray-50">
-                        <p>Wymagamy formularza rekrutacyjnego, świadectwa ukończenia szkoły podstawowej oraz zdjęcia legitymacyjnego.</p>
-                    </div>
-                </div>
+                <h3 class="mt-4">Profil Matematyczny</h3>
+                <p>
+                  Profil matematyczny jest idealny dla uczniów, którzy chcą
+                  zgłębiać tajniki matematyki i przedmiotów ścisłych. Program
+                  nauczania obejmuje...
+                </p>
+                <a href="#" class="btn btn-primary">Dowiedz się więcej</a>
+              </div>
             </div>
-        </section>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div id="science-profile" class="profile-card shadow-sm">
+                <div class="profile-icon bg-success text-white">
+                  <i class="fas fa-flask"></i>
+                </div>
+                <h3 class="mt-4">Profil Przyrodniczy</h3>
+                <p>
+                  W tym profilu uczniowie będą mieli okazję zgłębiać biologię,
+                  chemię i fizykę, z naciskiem na doświadczenia laboratoryjne i
+                  projekty badawcze...
+                </p>
+                <a href="#" class="btn btn-success">Dowiedz się więcej</a>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div id="humanities-profile" class="profile-card shadow-sm">
+                <div class="profile-icon bg-danger text-white">
+                  <i class="fas fa-book"></i>
+                </div>
+                <h3 class="mt-4">Profil Humanistyczny</h3>
+                <p>
+                  Profil humanistyczny pozwala uczniom rozwijać pasję do
+                  literatury, historii, filozofii i sztuki. Program obejmuje
+                  analizę tekstów, krytyczne myślenie oraz...
+                </p>
+                <a href="#" class="btn btn-danger">Dowiedz się więcej</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sekcja z Harmonogramem rekrutacji-->
+      <section id="schedule" class="py-5">
+        <div class="container text-center">
+          <h2 class="display-5 fw-bold mb-5">Harmonogram Rekrutacji</h2>
+          <div class="timeline">
+            <!-- Punkt 1 -->
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="date-circle" data-date="01 Marzec">
+                  <div class="timeline-line"></div>
+                  <div class="event">
+                    <h5>Otwarcie rekrutacji</h5>
+                    <p>Rekrutacja na rok szkolny 2024/2025 rozpoczyna się.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Punkt 2 -->
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="date-circle" data-date="15 Marzec">
+                  <div class="timeline-line"></div>
+                  <div class="event">
+                    <h5>Spotkanie informacyjne</h5>
+                    <p>
+                      Spotkanie online dla kandydatów, na którym przedstawimy
+                      szczegóły rekrutacji.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Punkt 3 -->
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="date-circle" data-date="01 Kwiecień">
+                  <div class="timeline-line"></div>
+                  <div class="event">
+                    <h5>Prezentacja ofert</h5>
+                    <p>
+                      Przedstawienie szczegółów dostępnych profili
+                      rekrutacyjnych.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Punkt 4 -->
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="date-circle" data-date="15 Kwiecień">
+                  <div class="timeline-line"></div>
+                  <div class="event">
+                    <h5>Testy kwalifikacyjne</h5>
+                    <p>Egzaminy i testy sprawdzające wiedzę kandydatów.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Punkt 5 -->
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="date-circle" data-date="30 Kwiecień">
+                  <div class="timeline-line"></div>
+                  <div class="event">
+                    <h5>Ogłoszenie wyników</h5>
+                    <p>Ogłoszenie wyników rekrutacji oraz przyjęć do szkoły.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sekcja z dokumentami-->
+      <section id="documents" class="py-5">
+        <div class="container text-center">
+          <h2 class="display-5 fw-bold mb-5">Dokumenty Rekrutacyjne</h2>
+          <div class="row">
+            <div class="col-12 mb-4">
+              <a
+                href="dokument1.pdf"
+                class="document-link p-4 d-block border rounded text-decoration-none"
+                target="_blank"
+              >
+                <h5 class="fw-bold">Formularz rekrutacyjny</h5>
+              </a>
+            </div>
+            <div class="col-12 mb-4">
+              <a
+                href="dokument2.pdf"
+                class="document-link p-4 d-block border rounded text-decoration-none"
+                target="_blank"
+              >
+                <h5 class="fw-bold">
+                  Świadectwo ukończenia szkoły podstawowej
+                </h5>
+              </a>
+            </div>
+            <div class="col-12 mb-4">
+              <a
+                href="dokument3.pdf"
+                class="document-link p-4 d-block border rounded text-decoration-none"
+                target="_blank"
+              >
+                <h5 class="fw-bold">Zdjęcie legitymacyjne</h5>
+              </a>
+            </div>
+            <div class="col-12 mb-4">
+              <a
+                href="dokument4.pdf"
+                class="document-link p-4 d-block border rounded text-decoration-none"
+                target="_blank"
+              >
+                <h5 class="fw-bold">Zaświadczenie o wynikach z testów</h5>
+              </a>
+            </div>
+            <div class="col-12 mb-4">
+              <a
+                href="dokument5.pdf"
+                class="document-link p-4 d-block border rounded text-decoration-none"
+                target="_blank"
+              >
+                <h5 class="fw-bold">Regulamin rekrutacji</h5>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sekcja Zasady obliczania punktów rekrutacyjnych -->
+      <section id="recruitment-rules" class="py-5 bg-light">
+        <div class="container">
+          <h2 class="display-4 fw-bold text-center mb-5">
+            Zasady Obliczania Punktów Rekrutacyjnych
+          </h2>
+
+          <div class="row">
+            <div class="col-md-6">
+              <h3>1. Kryteria punktowe</h3>
+              <p>W procesie rekrutacji uwzględniane są następujące kryteria:</p>
+              <ul>
+                <li>
+                  <strong>Oceny z przedmiotów obowiązkowych</strong>:
+                  matematyka, język polski, języki obce.
+                </li>
+                <li>
+                  <strong>Wyniki z testów kwalifikacyjnych</strong>: testy z
+                  wybranych przedmiotów.
+                </li>
+                <li>
+                  <strong>Dodatkowe osiągnięcia</strong>: nagrody, udział w
+                  olimpiadach, konkursach i projektach.
+                </li>
+                <li>
+                  <strong>Wyniki z matury (jeśli dotyczy)</strong>: dla
+                  kandydatów, którzy już ukończyli szkołę podstawową.
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-md-6">
+              <h3>2. Punktacja</h3>
+              <p>
+                Każdemu z kryteriów przypisana jest określona liczba punktów.
+                Szczegółowa punktacja wygląda następująco:
+              </p>
+              <ul>
+                <li>
+                  <strong>Oceny z przedmiotów obowiązkowych</strong>: 0-30
+                  punktów.
+                </li>
+                <li>
+                  <strong>Wyniki z testów kwalifikacyjnych</strong>: 0-40
+                  punktów.
+                </li>
+                <li><strong>Dodatkowe osiągnięcia</strong>: 0-20 punktów.</li>
+                <li><strong>Wyniki matury</strong>: 0-50 punktów.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row mt-5">
+            <div class="col-12">
+              <h3>3. Przykładowa tabela punktowa</h3>
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Kryterium</th>
+                    <th>Punkty</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Ocena z matematyki</td>
+                    <td>10-15 punktów</td>
+                  </tr>
+                  <tr>
+                    <td>Ocena z języka polskiego</td>
+                    <td>10-15 punktów</td>
+                  </tr>
+                  <tr>
+                    <td>Ocena z języka obcego</td>
+                    <td>10-15 punktów</td>
+                  </tr>
+                  <tr>
+                    <td>Wyniki z testów kwalifikacyjnych</td>
+                    <td>0-40 punktów</td>
+                  </tr>
+                  <tr>
+                    <td>Dodatkowe osiągnięcia</td>
+                    <td>0-20 punktów</td>
+                  </tr>
+                  <tr>
+                    <td>Wyniki matury</td>
+                    <td>0-50 punktów</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="row mt-5">
+            <div class="col-12">
+              <h3>4. Jak obliczamy punkty?</h3>
+              <p>
+                Sumujemy punkty uzyskane za wszystkie kryteria. Najwyżej
+                oceniani kandydaci zostaną przyjęci do szkoły. W przypadku
+                równej liczby punktów, decyduje kolejność zgłoszeń.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sekcja FAQ -->
+      <section id="faq" class="py-5 bg-light">
+        <div class="container">
+          <h2 class="display-5 fw-bold text-center text-dark mb-5">
+            Najczęściej Zadawane Pytania
+          </h2>
+          <div class="accordion" id="faqAccordion">
+            <!-- Pytanie 1 -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+              <h2 class="accordion-header" id="faqHeading1">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faqCollapse1"
+                  aria-expanded="false"
+                  aria-controls="faqCollapse1"
+                >
+                  Jakie są wymagania rekrutacyjne?
+                </button>
+              </h2>
+              <div
+                id="faqCollapse1"
+                class="accordion-collapse collapse"
+                aria-labelledby="faqHeading1"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  Wymagania zależą od profilu, ale w każdym przypadku liczy się
+                  średnia ocen oraz wyniki z przedmiotów obowiązkowych.
+                </div>
+              </div>
+            </div>
+            <!-- Pytanie 2 -->
+            <div class="accordion-item" data-aos="fade-up" data-aos-delay="100">
+              <h2 class="accordion-header" id="faqHeading2">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faqCollapse2"
+                  aria-expanded="false"
+                  aria-controls="faqCollapse2"
+                >
+                  Jakie dokumenty są potrzebne do rekrutacji?
+                </button>
+              </h2>
+              <div
+                id="faqCollapse2"
+                class="accordion-collapse collapse"
+                aria-labelledby="faqHeading2"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body">
+                  Wymagamy formularza rekrutacyjnego, świadectwa ukończenia
+                  szkoły podstawowej oraz zdjęcia legitymacyjnego.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
+    <!-- Szczegóły Profilu Matematycznego -->
+    <section id="math-profile-details" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="display-4 fw-bold text-center">Profil Matematyczny</h2>
+        <p class="lead">
+          Profil matematyczny jest dedykowany uczniom, którzy pasjonują się
+          matematyką oraz przedmiotami ścisłymi. Program obejmuje:
+        </p>
+        <ul>
+          <li>
+            Zaawansowaną matematykę: algebra, analiza matematyczna, geometria.
+          </li>
+          <li>
+            Przygotowanie do matury podstawowej i rozszerzonej z matematyki.
+          </li>
+          <li>Podstawy informatyki i programowania.</li>
+          <li>Projekty naukowe i warsztaty matematyczne.</li>
+        </ul>
+        <p>
+          Uczniowie zdobywają solidną podstawę do studiów na kierunkach
+          inżynierskich, ekonomicznych i informatycznych.
+        </p>
+      </div>
+    </section>
+
+    <!-- Szczegóły Profilu Przyrodniczego -->
+    <section id="science-profile-details" class="py-5">
+      <div class="container">
+        <h2 class="display-4 fw-bold text-center">Profil Przyrodniczy</h2>
+        <p class="lead">
+          Profil przyrodniczy oferuje uczniom dogłębną wiedzę z zakresu
+          biologii, chemii oraz fizyki. Program obejmuje:
+        </p>
+        <ul>
+          <li>Eksperymenty laboratoryjne z biologii, chemii i fizyki.</li>
+          <li>Rozwinięte zajęcia praktyczne z zakresu nauk przyrodniczych.</li>
+          <li>
+            Przygotowanie do studiów na kierunkach medycznych, biologicznych i
+            inżynierskich.
+          </li>
+          <li>Projekty badawcze i współpraca z uczelniami wyższymi.</li>
+        </ul>
+        <p>
+          Ten profil zapewnia solidną podstawę do dalszego kształcenia w naukach
+          przyrodniczych i inżynieryjnych.
+        </p>
+      </div>
+    </section>
+
+    <!-- Szczegóły Profilu Humanistycznego -->
+    <section id="humanities-profile-details" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="display-4 fw-bold text-center">Profil Humanistyczny</h2>
+        <p class="lead">
+          Profil humanistyczny pozwala uczniom rozwijać pasję do literatury,
+          historii, filozofii i sztuki. Program obejmuje:
+        </p>
+        <ul>
+          <li>Analiza klasycznych dzieł literackich i filozoficznych.</li>
+          <li>Zajęcia z historii sztuki i kultury.</li>
+          <li>
+            Rozwinięte umiejętności krytycznego myślenia i analizy tekstów.
+          </li>
+          <li>
+            Przygotowanie do studiów na kierunkach humanistycznych,
+            artystycznych i prawnych.
+          </li>
+        </ul>
+        <p>
+          Profil humanistyczny rozwija kreatywność i zdolności analityczne,
+          umożliwiając dalsze kształcenie w szerokim zakresie dziedzin
+          humanistycznych.
+        </p>
+      </div>
+    </section>
+
     <!-- Stopka -->
-    <footer class="bg-black text-white py-8">
-    <div class="container mx-auto text-center">
-        <div class="mb-4">
-            <p>&copy; 2024 Szkoła Średnia - Wszystkie prawa zastrzeżone</p>
+    <footer class="bg-dark text-light py-4">
+      <div class="container">
+        <div class="row text-center text-md-start">
+          <!-- Informacje kontaktowe -->
+          <div class="col-md-4 mb-4">
+            <h5 class="fw-bold">Kontakt</h5>
+            <p class="mb-1">Adres: ul. Edukacyjna 123, 00-000 Miasto</p>
+            <p class="mb-1">
+              Email:
+              <a href="mailto:kontakt@szkola.pl" class="text-info"
+                >kontakt@szkola.pl</a
+              >
+            </p>
+            <p>Telefon: +48 123 456 789</p>
+          </div>
+          <!-- Linki społecznościowe -->
+          <div class="col-md-4 mb-4">
+            <h5 class="fw-bold">Znajdź nas</h5>
+            <div
+              class="d-flex justify-content-center justify-content-md-start gap-3"
+            >
+              <a href="#" class="text-light fs-4"
+                ><i class="fab fa-facebook"></i
+              ></a>
+              <a href="#" class="text-light fs-4"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="text-light fs-4"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="text-light fs-4"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+            </div>
+          </div>
+          <!-- Informacje prawne -->
+          <div class="col-md-4">
+            <h5 class="fw-bold">Informacje</h5>
+            <p>&copy; 2024 Szkoła Średnia</p>
+            <p>Wszystkie prawa zastrzeżone.</p>
+          </div>
         </div>
-        <div class="flex justify-center space-x-6 mb-4">
-            <a href="#" class="text-white hover:text-blue-500"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="text-white hover:text-blue-500"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="text-white hover:text-blue-500"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="text-white hover:text-blue-500"><i class="fab fa-instagram"></i></a>
+        <!-- Linia oddzielająca -->
+        <hr class="bg-light my-3" />
+        <div class="text-center">
+          <p class="mb-0 small">
+            Projekt i wykonanie: <a href="#" class="text-info">Twoja Nazwa</a>
+          </p>
         </div>
-        <div>
-            <p class="text-sm">Adres: ul. Edukacyjna 123, 00-000 Miasto, Polska</p>
-            <p class="text-sm">Kontakt: <a href="mailto:kontakt@szkola.pl" class="text-blue-400">kontakt@szkola.pl</a></p>
-        </div>
-    </div>
-</footer>
+      </div>
+    </footer>
 
-	<!--Skrypty-->
+    <!--Skrypty-->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
     <script>
-    // Aktywacja animacji AOS
-    AOS.init({
+      // Aktywacja animacji AOS
+      AOS.init({
         duration: 1000,
-        easing: 'ease-in-out',
-        once: true
-    });
+        easing: "ease-in-out",
+        once: true,
+      });
 
-    // Aktywacja akordeonu FAQ
-    document.querySelectorAll('.accordion-item button').forEach(button => {
-        button.addEventListener('click', () => {
-            const content = button.nextElementSibling;
-            content.classList.toggle('hidden');
+      // Stopniowa zmiana koloru nawigacji przy przewijaniu
+      window.addEventListener("scroll", () => {
+        const navbar = document.getElementById("navbar");
+        const scrollThreshold = 50; // Próg przewijania w px
+        const opacity = Math.min(window.scrollY / scrollThreshold, 1);
+        navbar.style.backgroundColor = `rgba(0, 0, 0, ${opacity})`;
+      });
+
+      // Aktywacja akordeonu FAQ
+      document.querySelectorAll(".accordion-item button").forEach((button) => {
+        button.addEventListener("click", () => {
+          const content = button.nextElementSibling;
+          content.classList.toggle("hidden");
         });
-    });
+      });
 
-   // Nawigacja zmieniająca tło przy przewijaniu
-window.addEventListener('scroll', () => {
-  const navbar = document.getElementById('navbar');
-  if (window.scrollY > 50) {
-    navbar.classList.add('bg-dark');
-    navbar.classList.remove('bg-transparent');
-  } else {
-    navbar.classList.add('bg-transparent');
-    navbar.classList.remove('bg-dark');
-  }
-});
+      // Nawigacja zmieniająca tło przy przewijaniu
+      window.addEventListener("scroll", () => {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("bg-dark");
+          navbar.classList.remove("bg-transparent");
+        } else {
+          navbar.classList.add("bg-transparent");
+          navbar.classList.remove("bg-dark");
+        }
+      });
 
-    // Menu hamburger
-    document.getElementById('hamburger').addEventListener('click', () => {
-        const navbar = document.getElementById('navbar');
-        navbar.classList.toggle('hidden');
-    });
+      // Menu hamburger
+      document.getElementById("hamburger").addEventListener("click", () => {
+        const navbar = document.getElementById("navbar");
+        navbar.classList.toggle("hidden");
+      });
 
-    // Obsługuje kliknięcie w przycisk Zobacz ofertę
-    document.getElementById('cta-button').addEventListener('click', function(e) {
-        e.preventDefault();  // Zapobiega domyślnej akcji linku
-        const targetSection = document.getElementById('offer');  // Sekcja docelowa
-        targetSection.scrollIntoView({
-            behavior: 'smooth',  // Płynne przewijanie
-            block: 'start'       // Ustawienie na początek sekcji
+      //Obsługuje kliknięcie w kafelki Ofert
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
         });
-    });
-</script>
-</body>
+      });
+
+      // Obsługuje kliknięcie w przycisk Zobacz ofertę
+      document
+        .getElementById("cta-button")
+        .addEventListener("click", function (e) {
+          e.preventDefault(); // Zapobiega domyślnej akcji linku
+          const targetSection = document.getElementById("offer"); // Sekcja docelowa
+          targetSection.scrollIntoView({
+            behavior: "smooth", // Płynne przewijanie
+            block: "start", // Ustawienie na początek sekcji
+          });
+        });
+
+      //Animowana kulka w harmonogramie
+      document.querySelectorAll(".date-circle").forEach((item) => {
+        item.addEventListener("click", function () {
+          const event = this.closest(".timeline-item").querySelector(".event");
+          event.classList.toggle("active");
+          if (event.classList.contains("active")) {
+            event.style.opacity = 1;
+            event.style.transform = "translateY(0)";
+          } else {
+            event.style.opacity = 0;
+            event.style.transform = "translateY(20px)";
+          }
+          window.scrollTo({ top: event.offsetTop - 100, behavior: "smooth" });
+        });
+      });
+
+      //Profile
+      document.querySelectorAll(".btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          alert("Przejdź do strony szczegółów profilu!");
+          // Możesz tu dodać np. przekierowanie do strony z pełnymi informacjami o profilu
+        });
+      });
+    </script>
+  </body>
 </html>
