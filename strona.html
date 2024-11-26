@@ -106,81 +106,53 @@
         margin-bottom: 10px;
       }
 
-      /* Sekcja z profilami */
+      /* Sekcja Profilów */
       .profile-card {
-        position: relative;
-        padding: 30px;
-        background-color: #fff;
-        border-radius: 15px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
         text-align: center;
+        transition: transform 0.3s ease;
       }
 
       .profile-card:hover {
         transform: translateY(-10px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      }
-
-      .profile-icon {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        margin: 0 auto;
-        font-size: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 15px;
-        margin-bottom: 20px;
       }
 
       .profile-card h3 {
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin-top: 20px;
+        color: #007bff;
+        margin-bottom: 10px;
       }
 
-      .profile-card p {
-        font-size: 1rem;
-        color: #6c757d;
-        line-height: 1.5;
-      }
-
-      .profile-card .btn {
-        margin-top: 20px;
-        padding: 10px 20px;
-        text-transform: uppercase;
-        font-weight: bold;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-      }
-
-      .profile-card .btn-primary {
+      .profile-card a {
+        margin-top: 15px;
+        display: inline-block;
+        text-decoration: none;
+        color: white;
         background-color: #007bff;
-        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
       }
 
-      .profile-card .btn-primary:hover {
+      .profile-card a:hover {
         background-color: #0056b3;
       }
 
-      .profile-card .btn-success {
-        background-color: #28a745;
-        border: none;
+      /* Sekcje szczegółowe */
+      .profile-details-section {
+        background-color: #f7f7f7;
+        padding: 50px 0;
       }
 
-      .profile-card .btn-success:hover {
-        background-color: #218838;
+      .profile-details-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
       }
 
-      .profile-card .btn-danger {
-        background-color: #dc3545;
-        border: none;
-      }
-
-      .profile-card .btn-danger:hover {
-        background-color: #c82333;
+      .profile-details-section p {
+        font-size: 1.2rem;
+        line-height: 1.6;
       }
 
       /*Style dla harmonogramu */
@@ -527,51 +499,51 @@
         </div>
       </section>
 
-      <!--Sekcje z profilami-->
+      <!-- Sekcja z Profilami -->
       <section id="profiles" class="py-5">
         <div class="container text-center">
-          <h2 class="display-5 fw-bold mb-5">Oferta Rekrutacyjna</h2>
+          <h2 class="display-5 fw-bold mb-5">Nasze Profile</h2>
+
           <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div id="math-profile" class="profile-card shadow-sm">
-                <div class="profile-icon bg-primary text-white">
-                  <i class="fas fa-calculator"></i>
-                </div>
-                <h3 class="mt-4">Profil Matematyczny</h3>
+            <div class="col-md-4 mb-4">
+              <div class="profile-card">
+                <h3>Profil Matematyczny</h3>
                 <p>
                   Profil matematyczny jest idealny dla uczniów, którzy chcą
-                  zgłębiać tajniki matematyki i przedmiotów ścisłych. Program
-                  nauczania obejmuje...
+                  zgłębiać tajniki matematyki i przedmiotów ścisłych.
                 </p>
-                <a href="#" class="btn btn-primary">Dowiedz się więcej</a>
+                <!-- Link do sekcji szczegółowej profilu matematycznego -->
+                <a href="#math-profile-details" class="btn btn-primary"
+                  >Dowiedz się więcej</a
+                >
               </div>
             </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div id="science-profile" class="profile-card shadow-sm">
-                <div class="profile-icon bg-success text-white">
-                  <i class="fas fa-flask"></i>
-                </div>
-                <h3 class="mt-4">Profil Przyrodniczy</h3>
+
+            <div class="col-md-4 mb-4">
+              <div class="profile-card">
+                <h3>Profil Przyrodniczy</h3>
                 <p>
                   W tym profilu uczniowie będą mieli okazję zgłębiać biologię,
-                  chemię i fizykę, z naciskiem na doświadczenia laboratoryjne i
-                  projekty badawcze...
+                  chemię i fizykę, z naciskiem na doświadczenia laboratoryjne.
                 </p>
-                <a href="#" class="btn btn-success">Dowiedz się więcej</a>
+                <!-- Link do sekcji szczegółowej profilu przyrodniczego -->
+                <a href="#science-profile-details" class="btn btn-primary"
+                  >Dowiedz się więcej</a
+                >
               </div>
             </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div id="humanities-profile" class="profile-card shadow-sm">
-                <div class="profile-icon bg-danger text-white">
-                  <i class="fas fa-book"></i>
-                </div>
-                <h3 class="mt-4">Profil Humanistyczny</h3>
+
+            <div class="col-md-4 mb-4">
+              <div class="profile-card">
+                <h3>Profil Humanistyczny</h3>
                 <p>
                   Profil humanistyczny pozwala uczniom rozwijać pasję do
-                  literatury, historii, filozofii i sztuki. Program obejmuje
-                  analizę tekstów, krytyczne myślenie oraz...
+                  literatury, historii, filozofii i sztuki.
                 </p>
-                <a href="#" class="btn btn-danger">Dowiedz się więcej</a>
+                <!-- Link do sekcji szczegółowej profilu humanistycznego -->
+                <a href="#humanities-profile-details" class="btn btn-primary"
+                  >Dowiedz się więcej</a
+                >
               </div>
             </div>
           </div>
@@ -1078,6 +1050,17 @@
             block: "start", // Ustawienie na początek sekcji
           });
         });
+
+      // Płynne przewijanie do sekcji
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
 
       //Animowana kulka w harmonogramie
       document.querySelectorAll(".date-circle").forEach((item) => {
